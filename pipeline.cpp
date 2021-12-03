@@ -1,6 +1,7 @@
 #include "pipeline.hpp"
 
 #include <fstream>
+#include <iostream>
 #include <stdexcept>
 
 namespace pincher {
@@ -19,5 +20,15 @@ namespace pincher {
         file.close();
 
         return buffer;
+    }
+
+    void Pipeline::createGraphicsPipeline(
+        const std::string& vertFilepath, const std::string& fragFilepath
+    ) {
+        auto vertCode = readFile(vertFilepath);
+        auto fragCode = readFile(fragFilepath);
+
+        std::cout << "[DEBUG][PINCHER][pipeline.cpp] Vertex Shader Code Size: " << vertCode.size() << std::endl;
+        std::cout << "[DEBUG][PINCHER][pipeline.cpp] Fragment Shader Code Size: " << fragCode.size() << std::endl;
     }
 }
