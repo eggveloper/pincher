@@ -2,6 +2,7 @@
 #define PINCHER_EGG_HPP
 
 #include "window.hpp"
+#include "pipeline.hpp"
 
 namespace pincher {
     class PincherApp {
@@ -12,6 +13,7 @@ namespace pincher {
         void run();
     private:
         Window window{WIDTH, HEIGHT, "pincher engine"};
+        Pipeline pipeline{"shaders/simple_shader.vert.spv", "shaders/simple_shader.frag.spv"};
     };
 }
 
