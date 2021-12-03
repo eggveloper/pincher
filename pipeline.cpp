@@ -5,6 +5,10 @@
 #include <stdexcept>
 
 namespace pincher {
+    Pipeline::Pipeline(const std::string& vertFilepath, const std::string& fragFilepath) {
+        createGraphicsPipeline(vertFilepath, fragFilepath);
+    }
+
     std::vector<char> Pipeline::readFile(const std::string& filepath) {
         std::ifstream file{filepath, std::ios::ate | std::ios::binary};
 
