@@ -16,4 +16,4 @@ namespace pincher {
     };
 }
 
-#endif
+#endif /* PINCHER_PIPELINE_HPP */
