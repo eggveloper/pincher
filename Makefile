@@ -6,6 +6,8 @@ LDFLAGS = -L${VULKAN_SDK_PATH}/lib `pkg-config --static --libs glfw3` -lvulkan
 pincher: *.cpp *.hpp
 	g++ $(CFLAGS) -o pincher *.cpp $(LDFLAGS)
 
+all: pincher
+
 .PHONY: test clean
 
 test: pincher

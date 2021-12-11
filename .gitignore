@@ -2,3 +2,4 @@
 *.spv
 .vscode
 pincher
+.idea/
