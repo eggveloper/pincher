@@ -1,8 +1,9 @@
-#ifndef PINCHER_EGG_HPP
-#define PINCHER_EGG_HPP
+#ifndef PINCHER_APP_HPP
+#define PINCHER_APP_HPP
 
 #include "window.hpp"
 #include "pipeline.hpp"
+#include "device.hpp"
 
 namespace pincher {
     class PincherApp {
@@ -11,10 +12,17 @@ namespace pincher {
         static constexpr int HEIGHT = 600;
 
         void run();
+
     private:
         Window window{WIDTH, HEIGHT, "pincher engine"};
-        Pipeline pipeline{"shaders/simple_shader.vert.spv", "shaders/simple_shader.frag.spv"};
+        Device device{window};
+        Pipeline pipeline{
+            device,
+            "shaders/simple_shader.vert.spv",
+            "shaders/simple_shader.frag.spv",
+            Pipeline::defaultPipelineConfigInfo(WIDTH, HEIGHT)
+        };
     };
 }
 
-#endif /* PINCHER_EGG_HPP */
+#endif /* PINCHER_APP_HPP */
